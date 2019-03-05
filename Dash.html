@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<head>
+<script src="/assets/jquery.js"></script>
+
+<style>
+body {
+  font-family: helvetica, sans-serif;
+  margin: 0 auto;
+  max-width: 600px;
+  background: #232323;
+}
+ul {
+      padding: 10px;
+      background: rgba(0,0,0,0.5);
+      text-align: center;
+    }
+div {
+  height: 355px;
+  background-size: cover;
+  position: relative;
+  margin: 40px 0 0 0;
+  border-radius: 12px;
+}
+h1 {
+  font-family: 'Londrina Shadow', cursive;
+  text-align: center;
+  font-size: 75px;
+  color: #aaaaaa;
+  margin: 60px 0 0 0;
+}
+h2 {
+  text-align: center;
+  color: #bbbbbb;
+  margin: 0px 0 70px 0;
+}
+p {
+  color: rgba(255,255,255,1);
+  background: black;
+  background: linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  background: -webkit-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  background: -moz-linear-gradient(bottom, rgba(0,0,0,1), rgba(0,0,0,.4));
+  padding: 10px;
+  line-height: 28px;
+  text-align: justify;
+  position: absolute;
+  bottom: 0;
+  margin: 0;
+  height: 30px;
+  transition: height .5s;
+  -webkit-transition: height .5s;
+  -moz-transition: height .5s;
+}
+
+small {
+  opacity: 0;
+}
+
+.show-description p {
+  height: 150px;
+}
+
+.show-description small {
+  opacity: 1;
+}
+.price {
+  float: right;
+}
+ul {
+      padding: 10px;
+      background: rgba(0,0,0,0.5);
+    }
+    li {
+      display: inline;
+      padding: 0px 10px 0px 10px;
+    }
+@media (max-width: 500px) {
+  h1 {
+    font-size: 50px;
+    margin-top: 20px;
+    line-height: 40px;
+  }
+  h2 {
+    font-size: 20px;
+    margin: 20px 0 30px 0;
+  }
+  div {
+    margin: 20px 12px 0 12px;
+  }
+  p {
+    font-size: 20px;
+    line-height: 24px;
+  }
+  small {
+    font-size: 16px;
+  }
+}
+
+</style>
+
+</head>
+
+<body>
+    <ul>
+      <li><button onclick=appetizers()>Appetizer</button></li>
+      <li><button onclick=breakfast()>breakfast</button></li>
+      <li><button onclick=lunch()>lunch</button></li>
+    </ul>
+
+<h1>esha's restaurant</h1>
+<h2>a New York City eatery</h2>
+
+<div id="bri"> </div>
+
+<script>
+
+AppetizerImages = [
+  'url("https://images-gmi-pmc.edge-generalmills.com/e54755e0-70f5-42d8-8d2d-cd75eb7b218a.jpg")',
+  'url("http://diningwithalice.com/wp-content/uploads/2015/09/Pumpkin-Milkshakes.jpg")', 
+  'url("https://images-gmi-pmc.edge-generalmills.com/087d17eb-500e-4b26-abd1-4f9ffa96a2c6.jpg")'
+]
+
+BreakfastImages = [
+  'url("https://www.meghantelpner.com/wp-content/uploads/2017/03/Gluten-Free-Pumpkin-Waffles-1012x674.jpg")',
+  'url("https://img1.cookinglight.timeinc.net/sites/default/files/styles/medium_2x/public/image/2017/01/main/creamy-soft-scrambled-eggs.jpg?itok=42x9Mojh")',
+  'url("https://dev.southsidemarket.com/wp-content/uploads/2017/07/HeroFinal-68.jpg")',
+]
+
+LunchImages = [
+  'url("https://images-na.ssl-images-amazon.com/images/I/81iUuyr2R7L._SY550_.jpg")',
+  'url("https://www.dollargeneral.com/media/catalog/product/cache/image/700x700/e9c3970ab036de70892d86c6d221abfe/0/0/00012000001314_0.jpg")',
+  'url("https://www.tasteofhome.com/wp-content/uploads/2017/10/Bistro-Turkey-Sandwich_EXPS_SDON17_203868_D06_28_3b-696x696.jpg")',
+  ]
+
+AppetizerDivs = [
+    '<div class="item"><p>Pumpkin Pie<span class="price">$11</span><br /><small>Pumpkin pie with Wipped cream. </small></p></div>',
+			'<div class="item"><p>Strawberry shake <span class="price">$12</span><br /><small>strewberry shake with wipped cream. </small></p></div>',
+			'<div class="item"><p>cookies <span class="price">$8</span><br /><small>soft fudge cookies.</small></p></div>',
+]
+
+BreakfastDivs = [ 
+  '<div class="item"><p>Waffles <span class="price">$10</span><br /><small>Butter waffles, Strawberry, with wiped cream (optional). </small></p></div>',
+			'<div class="item"><p>Scramble Eggs <span class="price">$7</span><br /><small> Scramble Eggs with cheese and pepper. </small></p></div>',
+			'<div class="item"><p>Beef Sauage <span class="price">$8</span><br /><small>Smoke Beef with side of seasoning.</small></p></div>',
+] 
+
+LunchDivs = [ 
+  '<div class="item"><p> Spicy Doritos chip <span class="price">$5</span><br /><small>Nachos Cheese. </small></p></div>',
+			'<div class="item"><p>Mountain Dew <span class="price">$1.50</span><br /><small>Beverage. </small></p></div>',
+			'<div class="item"><p>Turkey Sandwhich <span class="price">$8</span><br /><small> slice glaze Turkey.</small></p></div>',
+] 
+  
+  
+function appetizers() {
+  Bris = document.getElementById("bri")
+  Bris.innerHTML=''
+  Bris.innerHTML += AppetizerDivs[0]
+  Bris.innerHTML += AppetizerDivs[1]
+  Bris.innerHTML += AppetizerDivs[2]
+  items = document.getElementsByClassName("item")
+  items[0].style.background = AppetizerImages[0]
+  items[0].style.backgroundSize = '100% 100%'
+  items[1].style.background = AppetizerImages[1]
+  items[1].style.backgroundSize = '100% 100%' 
+  items[2].style.background = AppetizerImages[2]
+  items[2].style.backgroundSize = '100% 100%'
+  
+}
+
+function breakfast() {
+  Bris = document.getElementById("bri")
+  Bris.innerHTML=''
+  Bris.innerHTML += BreakfastDivs[0]
+  Bris.innerHTML += BreakfastDivs[1]
+  Bris.innerHTML += BreakfastDivs[2]
+  items = document.getElementsByClassName("item")
+  items[0].style.background = BreakfastImages[0]
+  items[0].style.backgroundSize = '100% 100%'
+  items[1].style.background = BreakfastImages[1]
+  items[1].style.backgroundSize = '100% 100%' 
+  items[2].style.background = BreakfastImages[2]
+  items[2].style.backgroundSize = '100% 100%'
+}
+
+
+
+function lunch() {
+  Bris = document.getElementById("bri")
+  Bris.innerHTML=''
+  Bris.innerHTML += LunchDivs[0]
+  Bris.innerHTML += LunchDivs[1]
+  Bris.innerHTML += LunchDivs[2]
+  items = document.getElementsByClassName("item")
+  items[0].style.background = LunchImages[0]
+  items[0].style.backgroundSize = '100% 100%'
+  items[1].style.background = LunchImages[1]
+  items[1].style.backgroundSize = '100% 100%' 
+  items[2].style.background = LunchImages[2]
+  items[2].style.backgroundSize = '100% 100%'
+}
+
+
+  $('div').on('click', function() {
+      $(this).toggleClass('show-description');
+  });
+</script>
+
+
+</body>
