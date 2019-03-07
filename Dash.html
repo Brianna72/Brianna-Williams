@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
 <script src="/assets/jquery.js"></script>
 
@@ -133,21 +132,21 @@ LunchImages = [
   ]
 
 AppetizerDivs = [
-    '<div class="item"><p>Pumpkin Pie<span class="price">$11</span><br /><small>Pumpkin pie with Wipped cream. </small></p></div>',
-			'<div class="item"><p>Strawberry shake <span class="price">$12</span><br /><small>strewberry shake with wipped cream. </small></p></div>',
-			'<div class="item"><p>cookies <span class="price">$8</span><br /><small>soft fudge cookies.</small></p></div>',
+    '<div class="item" onclick=this.classList.toggle("show-description")><p>Pumpkin Pie<span class="price">$11</span><br /><small>Pumpkin pie with Wipped cream. </small></p></div>',
+			'<div class="item" onclick=this.classList.toggle("show-description")><p>Strawberry shake <span class="price">$12</span><br /><small>strewberry shake with wipped cream. </small></p></div>',
+			'<div class="item" onclick=this.classList.toggle("show-description")><p>cookies <span class="price">$8</span><br /><small>soft fudge cookies.</small></p></div>',
 ]
 
 BreakfastDivs = [ 
-  '<div class="item"><p>Waffles <span class="price">$10</span><br /><small>Butter waffles, Strawberry, with wiped cream (optional). </small></p></div>',
-			'<div class="item"><p>Scramble Eggs <span class="price">$7</span><br /><small> Scramble Eggs with cheese and pepper. </small></p></div>',
-			'<div class="item"><p>Beef Sauage <span class="price">$8</span><br /><small>Smoke Beef with side of seasoning.</small></p></div>',
+  '<div class="item" onclick=this.classList.toggle("show-description")><p>Waffles <span class="price">$10</span><br /><small>Butter waffles, Strawberry, with wiped cream (optional). </small></p></div>',
+			'<div class="item" onclick=this.classList.toggle("show-description")><p>Scramble Eggs <span class="price">$7</span><br /><small> Scramble Eggs with cheese and pepper. </small></p></div>',
+			'<div class="item" onclick=this.classList.toggle("show-description")><p>Beef Sauage <span class="price">$8</span><br /><small>Smoke Beef with side of seasoning.</small></p></div>',
 ] 
 
 LunchDivs = [ 
-  '<div class="item"><p> Spicy Doritos chip <span class="price">$5</span><br /><small>Nachos Cheese. </small></p></div>',
-			'<div class="item"><p>Mountain Dew <span class="price">$1.50</span><br /><small>Beverage. </small></p></div>',
-			'<div class="item"><p>Turkey Sandwhich <span class="price">$8</span><br /><small> slice glaze Turkey.</small></p></div>',
+  '<div class="item" onclick=this.classList.toggle("show-description")><p> Spicy Doritos chip <span class="price">$5</span><br /><small>Nachos Cheese. </small></p></div>',
+			'<div class="item" onclick=this.classList.toggle("show-description")><p>Mountain Dew <span class="price">$1.50</span><br /><small>Beverage. </small></p></div>',
+			'<div class="item" onclick=this.classList.toggle("show-description")><p>Turkey Sandwhich <span class="price">$8</span><br /><small> slice glaze Turkey.</small></p></div>',
 ] 
   
   
@@ -200,10 +199,9 @@ function lunch() {
 }
 
 
-  $('div').on('click', function() {
-      $(this).toggleClass('show-description');
-  });
+  
 </script>
+
 
 
 </body>
